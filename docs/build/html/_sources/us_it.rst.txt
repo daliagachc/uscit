@@ -1,0 +1,7 @@
+us\_it module
+=============
+
+.. automodule:: us_it
+   :members:
+   :undoc-members:
+   :show-inheritance:

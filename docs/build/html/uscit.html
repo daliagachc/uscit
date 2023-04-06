@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>uscit module &#8212; us-it 23.04.06.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="notebooks/e010_gallery.html" />
+    <link rel="prev" title="src" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-uscit">
+<span id="uscit-module"></span><h1>uscit module<a class="headerlink" href="#module-uscit" title="Permalink to this heading">¶</a></h1>
+<p>Main module with all of the functions</p>
+<ul class="simple">
+<li><p>in principle, we require no extra module</p></li>
+<li><p>all modules are loaded within the functions</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="uscit.save_fig_temp_sys_open">
+<span class="sig-prename descclassname"><span class="pre">uscit.</span></span><span class="sig-name descname"><span class="pre">save_fig_temp_sys_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/uscit.html#save_fig_temp_sys_open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#uscit.save_fig_temp_sys_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a Matplotlib figure as a temporary PDF file and opens it using the system’s default program.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>matplotlib.figure.Figure</em>) – The figure object to be saved.</p></li>
+<li><p><strong>delete</strong> (<em>bool</em>) – A flag to determine whether the temporary file should be deleted after opening.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A file object representing the temporary PDF file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tempfile.NamedTemporaryFile</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function is particularly useful when creating figures for scientific articles and presentations,
+as it allows you to quickly save and view the figure without having to manually open the file.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_fig_temp_sys_open</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uscit.set_fig_rule">
+<span class="sig-prename descclassname"><span class="pre">uscit.</span></span><span class="sig-name descname"><span class="pre">set_fig_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/uscit.html#set_fig_rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#uscit.set_fig_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to set rules for matplotlib figures.</p>
+<p>It is very useful when trying to figure out margins and locations of access.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure object to be modified. If not given, the current figure will be used. Default is None.</p></li>
+<li><p><strong>g</strong> (<em>bool</em><em>, </em><em>optional</em>) – A flag to turn on/off grid lines. Default is True.</p></li>
+<li><p><strong>delete</strong> (<em>If true</em><em>, </em><em>then</em><em>, </em><em>the file is deleted automatically. Otherwise you are supposed to do it</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path to the temporary file</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Create a sample figure</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Apply the figure rules using the set_fig_rule function</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_fig_rule</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uscit.set_margin">
+<span class="sig-prename descclassname"><span class="pre">uscit.</span></span><span class="sig-name descname"><span class="pre">set_margin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/uscit.html#set_margin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#uscit.set_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusts the margins of a matplotlib figure.</p>
+<ul class="simple">
+<li><p>parameters are absolute in inches—not a proportion of the figure—.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure object to be modified. If not given, the current figure will be used. Default is None.</p></li>
+<li><p><strong>x1</strong> (<em>float</em><em>, </em><em>optional</em>) – The fraction of the figure width to reserve as padding for the left side of the plot. Default is None.</p></li>
+<li><p><strong>x2</strong> (<em>float</em><em>, </em><em>optional</em>) – The fraction of the figure width to reserve as padding for the right side of the plot. Default is None.</p></li>
+<li><p><strong>y1</strong> (<em>float</em><em>, </em><em>optional</em>) – The fraction of the figure height to reserve as padding for the bottom of the plot. Default is None.</p></li>
+<li><p><strong>y2</strong> (<em>float</em><em>, </em><em>optional</em>) – The fraction of the figure height to reserve as padding for the top of the plot. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>Create a simple plot and adjust the margins to make room for the legend</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">set_margin</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">y2</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">us-it</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">uscit module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/e010_gallery.html">Examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">src</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">src</a></li>
+      <li>Next: <a href="notebooks/e010_gallery.html" title="next chapter">Examples</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Diego Aliaga.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/uscit.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
