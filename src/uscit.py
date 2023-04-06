@@ -199,3 +199,4 @@ def set_margin(f=None, x1=None, x2=None, y1=None, y2=None):
         f.subplots_adjust(bottom=y1/y)
     if y2 is not None:
         f.subplots_adjust(top=1-y2/y)
+
