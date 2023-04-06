@@ -1,4 +1,4 @@
-# us-it 
+# uscit
 
 This is a very simple package
 - everyday functions 
