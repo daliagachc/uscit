@@ -5,3 +5,6 @@ This is a very simple package
 - there is no organization 
 - random collection of functions
 - only one module us_it
+
+# Documentation
+https://daliagachc.github.io/uscit/

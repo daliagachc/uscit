@@ -8,7 +8,7 @@ Main module with all of the functions
 
 import os
 
-def set_fig_rule(f=None, g=True, delete=True):
+def set_fig_rule(f=None, g=True, delete=True, open_temp = False ):
     """
     Function to set rules for matplotlib figures.
 
@@ -21,6 +21,8 @@ def set_fig_rule(f=None, g=True, delete=True):
     g : bool, optional
         A flag to turn on/off grid lines. Default is True.
     delete : If true, then, the file is deleted automatically. Otherwise you are supposed to do it
+    open_temp : bool, optional
+        A flag to open a pdf
 
     Returns
     -------
@@ -37,9 +39,10 @@ def set_fig_rule(f=None, g=True, delete=True):
 
         >>> set_fig_rule(f=fig, g=True)
 
+
     """
 
-    import matplotlib as plt
+    import matplotlib.pyplot as plt
 
 
     # If no figure is provided, get the current one
@@ -85,9 +88,9 @@ def set_fig_rule(f=None, g=True, delete=True):
 
     # Save and display the figure
     # pdf = '/tmp/rf.pdf'
-    pdf = save_fig_temp_sys_open(f, delete)
-
-    return pdf.name
+    if open_temp:
+        pdf = save_fig_temp_sys_open(f, delete)
+        return pdf.name
 
 
 def save_fig_temp_sys_open(f, delete=True):
@@ -200,3 +203,86 @@ def set_margin(f=None, x1=None, x2=None, y1=None, y2=None):
     if y2 is not None:
         f.subplots_adjust(top=1-y2/y)
 
+def format_ticks(ax):
+    """
+    Format ticks on the x-axis of a matplotlib plot with dates.
+    In increases the numbers of ticks
+    This funcitons is superseded by format_ticks2 and is only kept for
+    backward compatibility
+
+    Parameters
+    ----------
+    ax : matplotlib.axes.Axes
+        The axes object to format ticks.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> import matplotlib.pyplot as plt
+    >>> fig, ax = plt.subplots()
+    >>> ax.plot([1, 2, 3], [4, 5, 6])
+    >>> format_ticks(ax)
+    """
+
+    import matplotlib.dates as mdates
+
+    # Set up locator and formatter for major ticks
+    locator = mdates.AutoDateLocator(minticks=5, maxticks=10)
+    formatter = mdates.ConciseDateFormatter(locator)
+    ax.xaxis.set_major_locator(locator)
+    ax.xaxis.set_major_formatter(formatter)
+
+    # Set up locator for minor ticks
+    locator = mdates.AutoDateLocator(minticks=50, maxticks=60)
+    ax.xaxis.set_minor_locator(locator)
+
+    # Set the rotation and horizontal alignment of xtick labels
+    for xlabels in ax.get_xticklabels():
+        xlabels.set_rotation(0)
+        xlabels.set_ha("center")
+
+def format_ticks2(ax, M, m, show_offset=True):
+    """
+    Format the x-axis of a matplotlib plot to show dates and ticks.
+
+    Parameters
+    ----------
+    ax : matplotlib.axes.Axes
+        The axes object to be modified.
+    M : int
+        The maximum number of major ticks to be displayed.
+    m : int
+        The maximum number of minor ticks to be displayed.
+    show_offset: bool
+        show offset 
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> import matplotlib.pyplot as plt
+    >>> import datetime
+    >>> fig, ax = plt.subplots()
+    >>> dates = [datetime.datetime(2022, 1, 1) + datetime.timedelta(days=i) for i in range(365)]
+    >>> values = range(365)
+    >>> ax.plot(dates, values)
+    >>> format_ticks2(ax, 10, 50)
+    >>> plt.show()
+
+    """
+    import matplotlib.dates as mdates
+    locator = mdates.AutoDateLocator(minticks=int(M/2), maxticks=int(2*M))
+    formatter = mdates.ConciseDateFormatter(locator, show_offset=show_offset)
+    ax.xaxis.set_major_locator(locator)
+    ax.xaxis.set_major_formatter(formatter)
+    locator = mdates.AutoDateLocator(minticks=int(m/2), maxticks=(m*2))
+    ax.xaxis.set_minor_locator(locator)
+
+    for xlabels in ax.get_xticklabels():
+        xlabels.set_rotation(0)
+        xlabels.set_ha("center")
